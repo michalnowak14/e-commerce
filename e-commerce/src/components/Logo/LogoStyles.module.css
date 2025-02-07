@@ -1,0 +1,14 @@
+.container {
+  z-index: 2;
+  top: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  position: fixed;
+  img.logo {
+    cursor: pointer;
+    width: 150px;
+    background-color: transparent;
+  }
+}

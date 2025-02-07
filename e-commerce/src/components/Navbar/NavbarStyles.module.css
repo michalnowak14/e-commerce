@@ -1,0 +1,39 @@
+.container {
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  color: black;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  .nav {
+    z-index: 3;
+    justify-content: flex-start;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    position: fixed;
+
+    div {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 5px 10px;
+      font-size: 1.3rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    div:hover {
+      filter: blur(2px);
+    }
+  }
+}
+/* img {
+  width: 150px;
+} */

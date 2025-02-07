@@ -1,0 +1,10 @@
+* {
+  font-family: Polysans, sans-serif;
+}
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+button.active {
+  background-color: black;
+}

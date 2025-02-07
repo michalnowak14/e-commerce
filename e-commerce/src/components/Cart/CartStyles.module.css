@@ -1,0 +1,21 @@
+.container {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  background-color: rgb(3, 3, 3);
+  color: rgb(255, 255, 255);
+
+  h2 {
+    /* margin-top: 100px; */
+    height: 50px;
+  }
+}
+.square {
+  height: 200px;
+}
+.cart {
+  margin-top: 300px;
+  display: flex;
+  height: 10vh;
+}
