@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--bgc-color);
   justify-content: space-between;
 }
 .buttonsContainer {
@@ -10,7 +10,24 @@
   flex-direction: column;
   display: flex;
   height: 40vh;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--bgc-color);
+
+  .categoriesContainer {
+    display: flex;
+    justify-content: left;
+    div.categories {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      gap: 10%;
+      button {
+        color: var(--white-font);
+        width: 35%;
+        text-align: center;
+        padding: 5px 10px;
+      }
+    }
+  }
 
   div {
     display: flex;
@@ -19,8 +36,8 @@
       text-decoration: none;
       font-size: 1.3rem;
       background-color: transparent;
-      color: white;
-      border: 2px solid white;
+      color: var(--white-font);
+      border: 2px solid var(--white-font);
       padding: 5px 40px;
       border-radius: 20px;
       margin-bottom: 10px;
@@ -31,8 +48,57 @@
     }
     button:hover {
       color: black;
-      border: 2px solid rgb(14, 219, 24);
-      background: rgb(14, 219, 24);
+      border: 2px solid var(--hover-color);
+      background: var(--hover-color);
+    }
+    button:active {
+      background-color: black;
+      color: var(--white-font);
+      border: 2px solid black;
+    }
+
+    .active {
+      color: var(--white-font);
+      border: 2px solid black;
+      background: #000;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .buttonsContainer {
+    height: 30vh;
+    .categoriesContainer {
+      .categories {
+        .button {
+          padding: 8px 12px;
+        }
+      }
+    }
+    div {
+      button {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .buttonsContainer {
+    height: 30vh;
+    .categoriesContainer {
+      .categories {
+        .button {
+          padding: 8px 12px;
+        }
+      }
+    }
+    div {
+      display: flex;
+      justify-content: space-around;
+      button {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+        font-weight: normal;
+      }
     }
   }
 }

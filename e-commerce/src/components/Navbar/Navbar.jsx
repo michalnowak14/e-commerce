@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./NavbarStyles.module.css";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
-const Navbar = () => {
+const Navbar = ({ toggleCart }) => {
+  const { cart } = useContext(CartContext);
   const navigate = useNavigate();
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.nav}>
-          <div onClick={() => navigate("/")}>menu</div>
-          <div onClick={() => navigate("/cart/")}>koszyk 0</div>
+          <div onClick={() => navigate("/")}>home</div>
+          <div onClick={toggleCart}>cart {cart.length}</div>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ import { CartContext } from "../../context/CartContext";
 const Product = ({ img, img2, name, price, id }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-  const { addToCart } = useContext(CartContext);
+
   return (
     <div
       onClick={() => navigate(`/product/${id}`)}
@@ -17,7 +17,7 @@ const Product = ({ img, img2, name, price, id }) => {
       <img src={isHovered ? img2 : img} alt={name} />
       <div className={styles.infoContainer}>
         <h2>{name}</h2>
-        <h3>{price}</h3>
+        <h3>{price}$</h3>
       </div>
     </div>
   );

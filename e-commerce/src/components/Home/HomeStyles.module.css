@@ -1,14 +1,12 @@
 .container {
-  background-color: rgb(0, 0, 0);
   height: 100vh;
   display: flex;
   flex-direction: column;
-
   padding: 30px 30px;
-  animation-name: example;
+  background-color: var(--bgc-color);
+  /* animation-name: home;
   animation-duration: 0.3s;
-  animation-iteration-count: infinite;
-
+  animation-iteration-count: infinite; */
   .imgContainer {
     display: flex;
     margin: auto;
@@ -23,8 +21,8 @@
       text-decoration: none;
       font-size: 1.3rem;
       background-color: transparent;
-      color: white;
-      border: 2px solid white;
+      color: var(--white-font);
+      border: 2px solid var(--white-font);
       padding: 5px 20px;
       border-radius: 20px;
       margin-bottom: 10px;
@@ -34,23 +32,52 @@
       cursor: pointer;
       min-width: 10rem;
       text-transform: uppercase;
+      transition: 0.2s;
     }
     button:hover {
       color: black;
-      border: 2px solid rgb(14, 219, 24);
-      background: rgb(14, 219, 24);
+      border: 2px solid var(--hover-color);
+      background: var(--hover-color);
     }
   }
 }
-@keyframes example {
+@keyframes home {
   0% {
     background-color: black;
   }
   50% {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white-font);
   }
 
   100% {
     background-color: black;
+  }
+}
+
+.containerLookbook {
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-size: cover;
+  padding: 30px 30px;
+}
+.lookbook {
+  width: 100vw;
+  align-self: end;
+  color: var(--white-font);
+  font-size: 30px;
+}
+
+@media (max-width: 480px) {
+  .container .btnContainer button {
+    width: 100%;
+    font-size: 0.5rem;
+    padding: 8px 12px;
+  }
+
+  .container {
+    padding: 10px;
+    gap: 5px;
   }
 }

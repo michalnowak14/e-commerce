@@ -3,3 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --hover-color: #152d70;
+  --bgc-color: #252525;
+  --white-font: #faf9f6;
+  --black-font: #252525;
+}
