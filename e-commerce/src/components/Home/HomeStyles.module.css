@@ -4,9 +4,7 @@
   flex-direction: column;
   padding: 30px 30px;
   background-color: var(--bgc-color);
-  /* animation-name: home;
-  animation-duration: 0.3s;
-  animation-iteration-count: infinite; */
+
   .imgContainer {
     display: flex;
     margin: auto;
@@ -56,8 +54,9 @@
 
 .containerLookbook {
   background-repeat: no-repeat;
+
   height: 100vh;
-  width: 100vw;
+
   display: flex;
   background-size: cover;
   padding: 30px 30px;

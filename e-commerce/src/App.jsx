@@ -1,13 +1,14 @@
-import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Shop from "./components/Shop/Shop";
 import Home from "./components/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
-import CartProvider from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
 import Footer from "./components/Footer/Footer";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+import { useState } from "react";
 
 function App() {
   const [cartVisible, setCartVisible] = useState(false);
@@ -18,7 +19,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <CartProvider>
+      {/* <CartProvider> */}
+      <Provider store={store}>
         <Navbar toggleCart={toggleCart} />
         <Cart cartVisible={cartVisible} toggleCart={toggleCart} />{" "}
         <Routes>
@@ -27,7 +29,8 @@ function App() {
           <Route path="/product/:id" element={<ProductDisplay />} />
         </Routes>
         <Footer />
-      </CartProvider>
+      </Provider>
+      {/* </CartProvider> */}
     </BrowserRouter>
   );
 }

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./HomeStyles.module.css";
 import alien from "../../assets/alien.webp";
 import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/lookbook1.jpg";
-import img2 from "../../assets/lookbook2.jpg";
 import img3 from "../../assets/lookbook3.jpg";
 import img4 from "../../assets/lookbook4.jpg";
 
@@ -15,10 +14,10 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % lookbookImages.length);
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  });
 
   return (
     <div>

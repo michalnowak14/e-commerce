@@ -1,10 +1,20 @@
-import React, { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  removeFromCart,
+  updateQuantity,
+  clearCart,
+} from "../../features/cart/cartSlice";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../features/cart/cartSelectors";
 import styles from "./CartStyles.module.css";
 
 const Cart = ({ cartVisible, toggleCart }) => {
-  const { cart, removeFromCart, updateQuantity, clearCart, totalPrice } =
-    useContext(CartContext);
+  const dispatch = useDispatch();
+  const cart = useSelector(selectCartItems);
+  const totalPrice = useSelector(selectCartTotal);
 
   return (
     <div className={`${styles.cart} ${cartVisible ? styles.show : ""}`}>
@@ -32,7 +42,13 @@ const Cart = ({ cartVisible, toggleCart }) => {
               <div className={styles.quantityControls}>
                 <button
                   onClick={() =>
-                    updateQuantity(item.id, item.size, item.quantity - 1)
+                    dispatch(
+                      updateQuantity({
+                        id: item.id,
+                        size: item.size,
+                        quantity: item.quantity - 1,
+                      })
+                    )
                   }
                   disabled={item.quantity <= 1}
                 >
@@ -41,7 +57,13 @@ const Cart = ({ cartVisible, toggleCart }) => {
                 <span>{item.quantity}</span>
                 <button
                   onClick={() =>
-                    updateQuantity(item.id, item.size, item.quantity + 1)
+                    dispatch(
+                      updateQuantity({
+                        id: item.id,
+                        size: item.size,
+                        quantity: item.quantity + 1,
+                      })
+                    )
                   }
                 >
                   +
@@ -49,7 +71,9 @@ const Cart = ({ cartVisible, toggleCart }) => {
               </div>
 
               <button
-                onClick={() => removeFromCart(item.id, item.size)}
+                onClick={() =>
+                  dispatch(removeFromCart({ id: item.id, size: item.size }))
+                }
                 className={styles.removeButton}
               >
                 <i className="fa-solid fa-xmark"></i>
@@ -58,6 +82,7 @@ const Cart = ({ cartVisible, toggleCart }) => {
           ))}
         </ul>
       )}
+
       {cart.length > 0 && (
         <div className={styles.priceContainer}>
           <p>Total:</p>
@@ -66,7 +91,10 @@ const Cart = ({ cartVisible, toggleCart }) => {
       )}
 
       {cart.length > 0 && (
-        <button onClick={clearCart} className={styles.clearCart}>
+        <button
+          onClick={() => dispatch(clearCart())}
+          className={styles.clearCart}
+        >
           Clear Cart
         </button>
       )}
